@@ -1,6 +1,8 @@
 const express = require("express");
 const connection = require("../config/mysql");
-
+const multer  = require('multer')
+const storage = require('../config/upload')
+const upload = multer({ storage });
 const router = express.Router();
 
 router.get("/",(req,res)=>{
@@ -11,11 +13,14 @@ router.get("/",(req,res)=>{
 })
 
 
-router.post("/register",(req,res)=>{
-  const {code,name,birthday,photo} = req.body
+router.post("/register",upload.single('photo'),(req,res)=>{
+  const {code,name,birthday} = req.body
+  const photo = req.file.filename
   const values = [
     code,name,birthday,photo
   ]
+
+
   
   connection.query('INSERT INTO users(code,name,birthday,photo)VALUES(?,?,?,?) ',values,(results)=>{
     res.json({results})
