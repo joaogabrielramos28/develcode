@@ -1,12 +1,14 @@
 const express = require('express');
 const connection = require('./config/mysql')
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 const App = express();
+
+
 
 App.use(bodyParser.json())
 App.use(bodyParser.urlencoded({extended: false}))
 
-require('./routes/user')(App)
+require('./controllers/user')(App)
 
 
 App.listen('3333',()=>{
