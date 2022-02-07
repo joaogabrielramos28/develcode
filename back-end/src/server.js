@@ -1,4 +1,5 @@
 const express = require('express');
+const connection = require('./config/mysql')
 var bodyParser = require('body-parser')
 const App = express();
 
@@ -9,5 +10,11 @@ require('./routes/user')(App)
 
 
 App.listen('3333',()=>{
-    console.log('Server running 🚀');
+    connection.connect((err)=>{
+        if(err){
+            console.log('erro ao conectar ao banco de dados')
+        }
+        else console.log('Server running 🚀');
+    })
+    
 })
