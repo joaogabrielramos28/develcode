@@ -14,6 +14,8 @@ export const Container = styled.div`
 export const UserImage = styled.img`
   width: 150px;
   border-radius: 50%;
+  height: 150px;
+  object-fit: cover;
 `;
 export const UserCode = styled.span`
   color: ${({ theme }) => theme.shape};
