@@ -27,6 +27,20 @@ router.post("/register",upload.single('photo'),(req,res)=>{
   })
 })
 
+router.put('/edit/:id',(req, res)=>{
+  const {code,name,birthday} = req.body;
+  const {id} = req.params
+
+
+  const values = [name,birthday,code,id]
+
+  connection.query(
+    `UPDATE users SET name = ? ,birthday=? ,code = ? WHERE id = ?`,values,(results)=>{
+      res.json({results})
+    }
+  )
+})
+
 
 // ? Rotas vão ser prefixadas com o '/user
 module.exports = (App) => App.use("/user", router);
