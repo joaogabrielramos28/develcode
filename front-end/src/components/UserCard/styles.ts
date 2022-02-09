@@ -45,3 +45,44 @@ export const Edit = styled(FaEdit)`
     transition: 0.7s ease;
   }
 `;
+
+
+export const Input = styled.input`
+background-color:transparent;
+  width:100%;
+  padding: 8px;
+  border:none;
+  outline:none;
+  border-bottom: 1px solid rgba(255,255,255,0.9);
+  color:${({theme})=>theme.shape};
+  outline: none;
+  margin: 0 10px;
+`;
+
+export const Button = styled.button`
+    width:100px;
+    
+    padding:8px;
+    color:${({theme})=>theme.shape};
+    border-radius: 8px;
+    outline: none;
+    border:none;
+    text-align: center;
+
+    background-color:#007bff;
+    cursor:pointer;
+    margin-top:10px;
+    &:hover{
+        opacity: .6;
+        transition:.7s ease;
+    }
+`;
+
+export const ButtonFormContainer = styled.div`
+  width:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+`
+

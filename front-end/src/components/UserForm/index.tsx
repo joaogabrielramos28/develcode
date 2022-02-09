@@ -41,13 +41,14 @@ const UserForm = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <Input placeholder="Nome" ref={nameInputRef} />
-        <Input placeholder="Código" ref={codeInputRef} />
-        <Input placeholder="Data de nascimento" ref={birthdayInputRef} />
+        <Input placeholder="Nome" ref={nameInputRef} required />
+        <Input placeholder="Código" ref={codeInputRef} required />
+        <Input placeholder="Data de nascimento" ref={birthdayInputRef} required />
         <Input
           placeholder="foto"
           type={"file"}
           onChange={onChangeInput}
+          required
         />
         <Button>Criar</Button>
       </Form>
